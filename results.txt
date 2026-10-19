@@ -1,0 +1,63 @@
+Rows, columns: (1500, 11)
+
+Missing values per column:
+ cloud_cover_pct    41
+temp_max_c         55
+humidity_pct       39
+wind_kmh           47
+dtype: int64
+
+Class balance:
+ output_level
+Low       501
+High      500
+Medium    499
+Name: count, dtype: int64
+
+Best tree settings: {'model__max_depth': 5}
+Best KNN settings : {'model__n_neighbors': 15}
+
+=== Decision Tree: test accuracy 0.797 ===
+              precision    recall  f1-score   support
+
+         Low       0.86      0.79      0.82       100
+      Medium       0.68      0.74      0.71       100
+        High       0.87      0.86      0.86       100
+
+    accuracy                           0.80       300
+   macro avg       0.80      0.80      0.80       300
+weighted avg       0.80      0.80      0.80       300
+
+Confusion matrix (rows = actual, columns = predicted):
+[[79 21  0]
+ [13 74 13]
+ [ 0 14 86]]
+
+=== KNN: test accuracy 0.730 ===
+              precision    recall  f1-score   support
+
+         Low       0.81      0.77      0.79       100
+      Medium       0.59      0.60      0.60       100
+        High       0.79      0.82      0.80       100
+
+    accuracy                           0.73       300
+   macro avg       0.73      0.73      0.73       300
+weighted avg       0.73      0.73      0.73       300
+
+Confusion matrix (rows = actual, columns = predicted):
+[[77 23  0]
+ [18 60 22]
+ [ 0 18 82]]
+
+Decision Tree feature importance:
+ cloud_cover_pct    0.581
+day_length_h       0.363
+rain_mm            0.041
+temp_max_c         0.010
+humidity_pct       0.004
+wind_kmh           0.001
+temp_min_c         0.000
+month              0.000
+dtype: float64
+
+Better model on the test set: Decision Tree
